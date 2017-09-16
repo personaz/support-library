@@ -1,0 +1,17 @@
+*.apk
+*.ap_
+*.dex
+*.class
+bin/
+gen/
+local.properties
+.DS_Store
+.classpath
+.project
+*.iml
+.idea
+.gradle
+build/
+obj/
+/captures
+.externalNativeBuild
