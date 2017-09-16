@@ -1,0 +1,10 @@
+{
+  "key_a": "value a",
+  "key_b": {
+    "sub_b": 2
+  },
+  "key_c": [
+    "child c 1", "child c 2", "child c 3"
+  ],
+  "key_d": null
+}

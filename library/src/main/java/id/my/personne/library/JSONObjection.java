@@ -34,7 +34,7 @@ public class JSONObjection extends JSONObject {
         super(copyFrom, names);
     }
 
-    public JSONObjection assetToJsonObject(Context context, String filename) throws IOException, JSONException {
+    public static JSONObjection assetToJsonObject(Context context, String filename) throws IOException, JSONException {
         InputStream inputStream = context.getAssets().open(filename);
         byte[] buffer = new byte[inputStream.available()];
         String jsonString = null;

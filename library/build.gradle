@@ -1,14 +1,38 @@
 apply plugin: 'com.android.library'
 
+ext {
+    bintrayRepo="android"
+    bintrayName="support-library"
+
+    publishedGroupId="id.my.personne.library"
+    libraryName="support-library"
+    artifact="library"
+
+    libraryDescription="Android support library, including AsyncTask, AES Encryption, DrawableView and JSONObject"
+
+    siteUrl="https://github.com/personaz/support-library"
+    gitUrl="https://github.com/personaz/support-library.git"
+
+    libraryVersion="0.1"
+
+    developerId="personna"
+    developerName="Surya Winata"
+    developerEmail="persone.origin@gmail.com"
+
+    licenseName="The Apache Software License, Version 2.0"
+    licenseUrl="http://www.apache.org/licenses/LICENSE-2.0.txt"
+    allLicenses=["Apache-2.0"]
+}
+
 android {
     compileSdkVersion 26
     buildToolsVersion "26.0.0"
 
     defaultConfig {
-        minSdkVersion 21
+        minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
-        versionName "1.0"
+        versionName "0.1"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -29,3 +53,6 @@ dependencies {
     compile 'com.android.support:appcompat-v7:26.+'
     testCompile 'junit:junit:4.12'
 }
+
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/installv1.gradle'
+apply from: 'https://raw.githubusercontent.com/nuuneoi/JCenter/master/bintrayv1.gradle'
