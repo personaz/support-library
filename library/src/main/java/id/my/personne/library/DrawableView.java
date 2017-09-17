@@ -7,7 +7,6 @@ import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
 import android.graphics.RectF;
-import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.MotionEvent;
 import android.view.View;
@@ -33,12 +32,12 @@ public class DrawableView extends View {
         preparePaint();
     }
 
-    public DrawableView(Context context, @Nullable AttributeSet attrs) {
+    public DrawableView(Context context, AttributeSet attrs) {
         super(context, attrs);
         preparePaint();
     }
 
-    public DrawableView(Context context, @Nullable AttributeSet attrs, int defStyleAttr) {
+    public DrawableView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         preparePaint();
     }

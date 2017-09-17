@@ -9,7 +9,6 @@ import android.database.Cursor;
 import android.net.Uri;
 import android.os.AsyncTask;
 import android.provider.MediaStore;
-import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -84,7 +83,7 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
     private ProgressViewListener progressViewListener;
     private OnUpdateProgressListener onUpdateProgress;
 
-    public AsyncRequest(@NonNull String url, RequestFinishedListener finishedListener) {
+    public AsyncRequest( String url, RequestFinishedListener finishedListener) {
         try {
             requestUrl = url.trim();
         } catch (Exception e) {
@@ -105,7 +104,7 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
      * @param method POST, GET, etc
      * @return AsyncRequest
      */
-    public AsyncRequest setMethod(@NonNull String method) {
+    public AsyncRequest setMethod( String method) {
         requestMethod = method;
         return this;
     }
@@ -127,7 +126,7 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
      * @param value header value
      * @return AsyncRequest
      */
-    public AsyncRequest setHeader(@NonNull String type, @NonNull String value) {
+    public AsyncRequest setHeader( String type,  String value) {
         KeyValuePair headerPair = new KeyValuePair(type, value);
         requestProperty.add(headerPair);
         return this;
@@ -187,7 +186,7 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
      * @param body JSON string
      * @return AsyncRequest
      */
-    public AsyncRequest setBodyRaw(@NonNull String body) {
+    public AsyncRequest setBodyRaw( String body) {
         this.rawBodyString = body;
         return this;
     }
@@ -197,7 +196,7 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
      * @param body JSON in byte array
      * @return AsyncRequest
      */
-    public AsyncRequest setBodyRaw(@NonNull byte[] body) {
+    public AsyncRequest setBodyRaw( byte[] body) {
         this.rawBodyBytes = body;
         return this;
     }
@@ -208,7 +207,7 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
      * @param value form value
      * @return AsyncRequest
      */
-    public AsyncRequest setBodyForm(@NonNull String field, @NonNull Object value) {
+    public AsyncRequest setBodyForm( String field,  Object value) {
         KeyValuePair body = new KeyValuePair(field, value);
         this.bodyForm.add(body);
         return this;
@@ -221,7 +220,7 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
      * @param listener finishing listener
      * @return AsyncRequest
      */
-    public AsyncRequest addLoadingDialog(@NonNull Activity container, @NonNull View view, ProgressViewListener listener) {
+    public AsyncRequest addLoadingDialog( Activity container,  View view, ProgressViewListener listener) {
         this.loadingContainer = container;
         this.progressView = view;
         this.progressViewListener = listener;
@@ -233,7 +232,7 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
      * @param backgroundProgress InsertBackgroundProgress insert addition if task success progress on background
      * @return AsyncRequest
      */
-    public AsyncRequest setMoreProgress(@NonNull InsertBackgroundProgress backgroundProgress) {
+    public AsyncRequest setMoreProgress( InsertBackgroundProgress backgroundProgress) {
         this.backgroundProgress = backgroundProgress;
         return this;
     }
@@ -584,7 +583,7 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
         return new byte[0];
     }
 
-    private byte[] contentDisposition(@NonNull String fieldName, String filename) {
+    private byte[] contentDisposition( String fieldName, String filename) {
         if (formDataBoundary != null) {
             try {
                 String content = CONTENT_DISPOSITION + ": form-data; name=\"" + fieldName + "\"";

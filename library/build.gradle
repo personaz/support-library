@@ -13,7 +13,7 @@ ext {
     siteUrl="https://github.com/personaz/support-library"
     gitUrl="https://github.com/personaz/support-library.git"
 
-    libraryVersion="0.1"
+    libraryVersion="0.1.2"
 
     developerId="personna"
     developerName="Surya Winata"
@@ -32,7 +32,7 @@ android {
         minSdkVersion 15
         targetSdkVersion 26
         versionCode 1
-        versionName "0.1"
+        versionName "0.1.2"
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -50,7 +50,6 @@ dependencies {
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
-    compile 'com.android.support:appcompat-v7:26.+'
     testCompile 'junit:junit:4.12'
 }
 
