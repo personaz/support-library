@@ -82,6 +82,7 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
     private AlertDialog dialog;
     private ProgressViewListener progressViewListener;
     private OnUpdateProgressListener onUpdateProgress;
+    private int responseCode = 0;
 
     public AsyncRequest( String url, RequestFinishedListener finishedListener) {
         try {
@@ -232,7 +233,7 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
      * @param backgroundProgress InsertBackgroundProgress insert addition if task success progress on background
      * @return AsyncRequest
      */
-    public AsyncRequest setMoreProgress( InsertBackgroundProgress backgroundProgress) {
+    public AsyncRequest setMoreProgress(InsertBackgroundProgress backgroundProgress) {
         this.backgroundProgress = backgroundProgress;
         return this;
     }
@@ -409,6 +410,7 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
                 }
 
                 InputStream in = success ? connection.getInputStream() : connection.getErrorStream();
+                responseCode = connection.getResponseCode();
                 data = convertInputStreamToByteArray(in);
                 if (success && backgroundProgress != null) {
                     backgroundProgress.onBackgroundSuccess(data);
@@ -431,7 +433,7 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
         super.onPostExecute(bytes);
         dismissProgressDialog();
         if (taskFinishedListener != null) {
-            taskFinishedListener.onFinished(bytes);
+            taskFinishedListener.onFinished(responseCode, bytes);
         }
     }
 
@@ -718,7 +720,7 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
     }
 
     public interface RequestFinishedListener {
-        void onFinished(byte[] result);
+        void onFinished(int responseCode, byte[] result);
     }
 
     public interface InsertBackgroundProgress {

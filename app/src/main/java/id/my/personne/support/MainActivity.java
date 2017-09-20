@@ -49,7 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
         AsyncRequest request = new AsyncRequest("url_request", new AsyncRequest.RequestFinishedListener() {
             @Override
-            public void onFinished(byte[] result) {
+            public void onFinished(int responseCode, byte[] result) {
                 String response = new String(result);
                 Log.i("response", response);
             }
