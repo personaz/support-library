@@ -13,7 +13,7 @@ ext {
     siteUrl="https://github.com/personaz/support-library"
     gitUrl="https://github.com/personaz/support-library.git"
 
-    libraryVersion="0.1.2"
+    libraryVersion="0.1.4"
 
     developerId="personna"
     developerName="Surya Winata"
@@ -26,7 +26,7 @@ ext {
 
 android {
     compileSdkVersion 26
-    buildToolsVersion "26.0.0"
+    buildToolsVersion "26.0.1"
 
     defaultConfig {
         minSdkVersion 15

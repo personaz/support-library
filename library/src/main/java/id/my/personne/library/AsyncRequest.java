@@ -50,11 +50,9 @@ public class AsyncRequest extends AsyncTask<Void, Long, byte[]> {
     public static final String HEADER_CONTENT_TYPE = "Content-Type";
     public static final String HEADER_ACCEPT = "Accept";
     public static final String HEADER_AUTH = "Authorization";
-    public static final String AUTH_BASIC = "Basic";
-    public static final String AUTH_BEARER = "Bearer";
     private static final int DEFAULT_BUFFER_SIZE = 1024;
     private String requestUrl;
-    private HttpURLConnection connection;
+    protected HttpURLConnection connection;
     private String requestMethod;
     private List<KeyValuePair> requestProperty;
     private int requestTimeout;
